@@ -1,0 +1,22 @@
+{% extends "re_projectapp/base.html" %}
+{% block body_block %}
+
+
+<div class="jumbtron">
+  {% if registered %}
+  <h1>THank you for registering!</h1>
+  {% else %}
+  <h1>Register here</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{user_form.as_p}}
+    {{profile_form.as_p}}
+    <input type="submit" value="submit">
+  </form>
+
+  {% endif %}
+
+</div>
+
+{% endblock %}
